@@ -1,2 +1,2 @@
 # Exercises_JavaScript
-JavaScript exercises.
+JavaScript exercises
