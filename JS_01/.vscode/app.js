@@ -11,7 +11,7 @@ function Hello2(name)
 Hello();
 Hello2();
 
-task3Element.addEventListener("click", Hello)
+task3Element.addEventListener("click", Hello) //Mouse click
 
 function stringAmount(a, b, c)
 {
