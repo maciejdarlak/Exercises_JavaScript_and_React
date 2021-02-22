@@ -1,6 +1,13 @@
 {
   "ExpandedNodes": [
+<<<<<<< HEAD
     ""
   ],
+=======
+    "",
+    "\\JS_01"
+  ],
+  "SelectedNode": "\\JS_01\\index.html",
+>>>>>>> 4aec5bc3a0a4fa18e57e7cd45a9281fe1f138e19
   "PreviewInSolutionExplorer": false
 }
