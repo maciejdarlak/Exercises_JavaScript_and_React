@@ -8,7 +8,7 @@ function getUserInput()
     return parseInt(userInput.value);
 }
 
-// Action description (string type).
+// Action description (string type) and calculation.
 function createAndWriteInput(operator, resultBeforeCalc, calcNumber)
 {
     const calcDescription = `${resultBeforeCalc} ${operator} ${calcNumber}`;
@@ -30,22 +30,36 @@ function writeToLog(operationIdentifier, prevResult, operationNumber, newResult)
     console.log(logEntries); // Displayed the objects array.
 }
 
-function add()
+// Just another way to get the result of a calculation (function within a function with if else).
+function calculateResult(calculationType)
 {
     const enteredNumber = getUserInput();
     const initialResult = currentResult;
-    currentResult += enteredNumber;
-    createAndWriteInput("+", initialResult, enteredNumber);
-    writeToLog("ADD", initialResult, enteredNumber, currentResult); // Displayed the objects array.
+
+    let mathOperator;
+    if(calculationType === "ADD")
+    {
+        currentResult += enteredNumber;
+        mathOperator = "+";
+    }
+    else
+    {
+        currentResult -= enteredNumber;   
+        mathOperator = "-";
+    }
+
+    createAndWriteInput(mathOperator, initialResult, enteredNumber);
+    writeToLog(calculationType, initialResult, enteredNumber, currentResult);  
+}
+
+function add()
+{
+    calculateResult("ADD");
 }
 
 function subtract()
 {
-    const enteredNumber = getUserInput();
-    const initialResult = currentResult;
-    currentResult -= enteredNumber;   
-    createAndWriteInput("-", initialResult, enteredNumber);
-    writeToLog("SUBTRACT", initialResult, enteredNumber, currentResult);
+    calculateResult("SUBTRACT"); 
 }
 
 function multiply()
