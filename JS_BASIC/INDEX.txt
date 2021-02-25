@@ -1,0 +1,2 @@
+JS_01 - some basic exercises
+JS_02 - the calculator app
