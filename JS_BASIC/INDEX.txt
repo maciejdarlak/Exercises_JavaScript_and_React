@@ -1,2 +1,3 @@
 JS_01 - some basic exercises
 JS_02 - the calculator app
+JS_03 - "Console.ReadKey()" equivalent in VS (not in VSP)
