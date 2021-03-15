@@ -12,12 +12,24 @@ class App extends Component {
     ]
   }
 
+  //switchNameHandler handles the button click event
+  switchNameHandler = () => {
+    //setState changes state proporties
+      this.setState( {
+        persons: [
+          { name: 'Pati', age: 6 },
+          { name: 'Angie', age: 100 },
+          { name: 'James', age: 200 }
+        ]
+      } )  
+    }
+
   render() {
   return (
     <div className="App">
       <h1>Hi</h1>
       <p>This is really working!</p>
-      <button>Switch name</button> 
+      <button onClick={this.switchNameHandler}>Switch name</button> 
       <Person  name={this.state.persons[0].name} age={this.state.persons[0].age} > I have a dog! </Person>
       <Person  name={this.state.persons[1].name} age={this.state.persons[1].age} > I have a hamster! </Person>
       <Person  name={this.state.persons[2].name} age={this.state.persons[2].age} /> 
