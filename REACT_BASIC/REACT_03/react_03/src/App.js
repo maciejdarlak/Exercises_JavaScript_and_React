@@ -5,7 +5,7 @@ import Person from './Person/Person'; //Import another Component to add to main 
 
 
 const App = props => {
-  //usestate (ALWAYS two elements array) and hawk bellow 
+  //usestate (ALWAYS two elements array) and hook bellow 
   const [ personsState, setPersonsState ] = useState({
     persons: [
       { name: 'Max', age: 40 },
@@ -20,7 +20,7 @@ console.log(personsState, otherState);
 
   //switchNameHandler handles the button click event
   const switchNameHandler = () => {
-    //setPersonsState can change proporties
+    //setPersonsState can change personsState proporties
     setPersonsState( {
         persons: [
           { name: 'Pati', age: 6 },
@@ -35,10 +35,17 @@ console.log(personsState, otherState);
     <div className="App">
       <h1>Hi</h1>
       <p>This is really working!</p>
-      <button onClick={switchNameHandler}>Switch name</button> 
-      <Person  name={personsState.persons[0].name} age={personsState.persons[0].age} > I have a dog! </Person>
-      <Person  name={personsState.persons[1].name} age={personsState.persons[1].age} > I have a hamster! </Person>
-      <Person  name={personsState.persons[2].name} age={personsState.persons[2].age} /> 
+      <button onClick={this.switchNameHandler}>Switch name</button> 
+      <Person  
+        name={personsState.persons[0].name} 
+        age={personsState.persons[0].age} />
+      <Person  
+        name={personsState.persons[1].name} 
+        age={personsState.persons[1].age} 
+        click={this.switchNameHandler}> I have a dog! </Person>
+      <Person  
+        name={personsState.persons[2].name} 
+        age={personsState.persons[2].age} /> 
     </div>
   );
   //return React.createElement('div', {className: 'App'}, React.createElement('h1', null, 'What is new?')); //React.createElement(component, props, ...children)
