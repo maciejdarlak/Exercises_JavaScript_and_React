@@ -1,0 +1,5 @@
+cd C:\Users\macie\source\repos\maciejdarlak\Exercises_JavaScript_and_React\REACT_BASIC\REACT_03\react_03
+npm start
+
+cd C:\Users\macie\source\repos\maciejdarlak\Exercises_JavaScript_and_React\REACT_BASIC\REACT_04\react_04
+npm start
