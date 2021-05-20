@@ -1,6 +1,7 @@
 import React from 'react';
 
 import './ExpenseDate.css';
+import Expenses from './Expenses';
 
 
 const ExpenseDate = (props) => {
@@ -16,3 +17,5 @@ const ExpenseDate = (props) => {
     </div>
   );
 };
+
+export default ExpenseDate;
