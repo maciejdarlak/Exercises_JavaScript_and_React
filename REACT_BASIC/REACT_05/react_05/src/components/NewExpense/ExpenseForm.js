@@ -3,20 +3,37 @@ import React, {useState} from 'react';
 import './ExpenseForm.css';
 
 const ExpenseForm = () => {
-  const [enteredTitle, setEnteredTitle] = useState(''); // Using state, in the array = old value -> new value
-  const [enteredAmount, setEnteredAmount] = useState(''); 
-  const [enteredDate, setEnteredDate] = useState(''); 
+  // const [enteredTitle, setEnteredTitle] = useState(''); 
+  // const [enteredAmount, setEnteredAmount] = useState(''); 
+  // const [enteredDate, setEnteredDate] = useState(''); 
+  const [userInput, setUserInput] = useState({  // One state intead of multiplay state
+    enteredTitle='',  
+    enteredAmount='',
+    enteredDate='',
+  });
 
-  const titleChangeHandler = (event) => { // "Event" - js function
-    setEnteredTitle(event.target.value); // "setEnteredTitle" is a new value, "event.target.value" - writing and reaction on live
+  const titleChangeHandler = (event) => { 
+    // setEnteredTitle(event.target.value); 
+    setUserInput({
+      ...userInput,
+      enteredTitle: event.target.value,
+    })
   }
 
   const amountChangeHandler = (event) => {
-    setEnteredTitle(event.target.value);
+    // setEnteredTitle(event.target.value);
+    setUserInput({
+      ...userInput,
+      enteredAmount: event.target.value,
+    })
   };
 
   const dateChangeHandler = (event) => {
-    setEnteredTitle(event.target.value);
+    // setEnteredTitle(event.target.value);
+    setUserInput({
+      ...userInput,
+      enteredDate: event.target.value,
+    })
   };
 };
 
