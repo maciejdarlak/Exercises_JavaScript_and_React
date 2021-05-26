@@ -1,64 +1,50 @@
-import React, {useState} from 'react';
+import React, { useState } from 'react';
 
 import './ExpenseForm.css';
 
-
 const ExpenseForm = () => {
-  // const [enteredTitle, setEnteredTitle] = useState(''); 
-  // const [enteredAmount, setEnteredAmount] = useState(''); 
-  // const [enteredDate, setEnteredDate] = useState(''); 
+  const [enteredTitle, setEnteredTitle] = useState('');
+  const [enteredAmount, setEnteredAmount] = useState('');
+  const [enteredDate, setEnteredDate] = useState('');
 
-    const [userInput, setUserInput] = useState({ // One state intead of multiplay state
-    enteredTitle: '',
-    enteredAmount: '',
-    enteredDate: '',
-  });
-
-  const titleChangeHandler  = (event) => { 
-    // setEnteredTitle(event.target.value); 
-
-    // setUserInput({
-    //   ...userInput,
-    //   enteredTitle: event.target.value,
-    // })
-
-    setUserInput((prevState) => { 
-      return {...prevState, enteredTitle: event.target.value }; //The best version of one state
-    });
+  
+  const titleChangeHandler = (event) => {
+    setEnteredTitle(event.target.value);
   };
 
   const amountChangeHandler = (event) => {
-    // setEnteredTitle(event.target.value);
-
-    // setUserInput({
-    //   ...userInput,
-    //   enteredAmount: event.target.value,
-
-    setUserInput((prevState) => {
-      return {...prevState, enteredAmount: event.target.value }; //The best version of one state
-    });
+    setEnteredAmount(event.target.value);
   };
 
   const dateChangeHandler = (event) => {
-    // setEnteredTitle(event.target.value);
-
-    // setUserInput({
-    //   ...userInput,
-    //   enteredDate: event.target.value,
-
-    setUserInput((prevState) => {
-      return {...prevState, enteredDate: event.target.value }; //The best version of one state
-    });
+    setEnteredDate(event.target.value);
   };
 
+  const submitHandler = (event) => {
+    event.preventDefault(); // Prevents it from being automatically uploaded to the server after clicking the "Submit" button
 
+    const expenseData = {
+      title: enteredTitle,
+      amount: setEnteredAmount,
+      date: new Date(enteredDate) // Date will parse that date string and converted into a date object
+    };
+
+    console.log(expenseData); // Recalling the state, but the new value is BLANK allowing rewriting 
+    setEnteredTitle('');
+    setEnteredAmount('');
+    setEnteredDate('');
+  };
 
   return (
-    <form>
+    <form onSubmit={submitHandler}> {/* submitHandler function for all bellow */}
       <div className='new-expense__controls'>
         <div className='new-expense__control'>
           <label>Title</label>
-          <input type='text' onChange={titleChangeHandler} />
+          <input 
+          type='text' 
+          value={enteredTitle} // Associated with "console.log(expenseData)"
+          onChange={titleChangeHandler} 
+          />
         </div>
         <div className='new-expense__control'>
           <label>Amount</label>
@@ -66,6 +52,7 @@ const ExpenseForm = () => {
             type='number'
             min='0.01'
             step='0.01'
+            value={enteredAmount} // Associated with "console.log(expenseData)"
             onChange={amountChangeHandler}
           />
         </div>
@@ -75,6 +62,7 @@ const ExpenseForm = () => {
             type='date'
             min='2019-01-01'
             max='2022-12-31'
+            value={enteredDate} // Associated with "console.log(expenseData)"
             onChange={dateChangeHandler}
           />
         </div>
@@ -84,6 +72,6 @@ const ExpenseForm = () => {
       </div>
     </form>
   );
-);
+};
 
 export default ExpenseForm;
