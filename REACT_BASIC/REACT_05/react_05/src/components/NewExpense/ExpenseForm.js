@@ -25,7 +25,7 @@ const ExpenseForm = () => {
 
     const expenseData = {
       title: enteredTitle,
-      amount: setEnteredAmount,
+      amount: enteredAmount,
       date: new Date(enteredDate) // Date will parse that date string and converted into a date object
     };
 
