@@ -2,12 +2,11 @@ import React, { useState } from 'react';
 
 import './ExpenseForm.css';
 
-const ExpenseForm = () => {
+const ExpenseForm = (props) => {
   const [enteredTitle, setEnteredTitle] = useState('');
   const [enteredAmount, setEnteredAmount] = useState('');
   const [enteredDate, setEnteredDate] = useState('');
 
-  
   const titleChangeHandler = (event) => {
     setEnteredTitle(event.target.value);
   };
@@ -29,7 +28,7 @@ const ExpenseForm = () => {
       date: new Date(enteredDate) // Date will parse that date string and converted into a date object
     };
 
-    console.log(expenseData); // Recalling the state, but the new value is BLANK allowing rewriting 
+    props.onSaveExpenseData(expenseData);
     setEnteredTitle('');
     setEnteredAmount('');
     setEnteredDate('');
