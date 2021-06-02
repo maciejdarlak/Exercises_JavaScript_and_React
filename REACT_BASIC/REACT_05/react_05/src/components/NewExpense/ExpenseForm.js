@@ -3,11 +3,11 @@ import React, { useState } from 'react';
 import './ExpenseForm.css';
 
 const ExpenseForm = (props) => {
-  const [enteredTitle, setEnteredTitle] = useState('');
+  const [enteredTitle, setEnteredTitle] = useState(''); // empty space - useState('')
   const [enteredAmount, setEnteredAmount] = useState('');
   const [enteredDate, setEnteredDate] = useState('');
 
-  const titleChangeHandler = (event) => {
+  const titleChangeHandler = (event) => { // empty space --> filled space
     setEnteredTitle(event.target.value);
   };
 
@@ -19,17 +19,17 @@ const ExpenseForm = (props) => {
     setEnteredDate(event.target.value);
   };
 
-  const submitHandler = (event) => {
-    event.preventDefault(); // Prevents it from being automatically uploaded to the server after clicking the "Submit" button
+  const submitHandler = (event) => { // send button
+    event.preventDefault(); // prevents it from being automatically uploaded to the server after clicking the "Submit" button
 
-    const expenseData = {
+    const expenseData = { // datas to send
       title: enteredTitle,
       amount: enteredAmount,
-      date: new Date(enteredDate) // Date will parse that date string and converted into a date object
+      date: new Date(enteredDate) // date will parse that date string and converted into a date object
     };
 
-    props.onSaveExpenseData(expenseData);
-    setEnteredTitle('');
+    props.onSaveExpenseData(expenseData); 
+    setEnteredTitle(''); // empty space again after sending
     setEnteredAmount('');
     setEnteredDate('');
   };
@@ -41,8 +41,8 @@ const ExpenseForm = (props) => {
           <label>Title</label>
           <input 
           type='text' 
-          value={enteredTitle} // Associated with "console.log(expenseData)"
-          onChange={titleChangeHandler} 
+          value={enteredTitle} // associated with "console.log(expenseData)"
+          onChange={titleChangeHandler} // empty space --> filled space
           />
         </div>
         <div className='new-expense__control'>
@@ -51,8 +51,8 @@ const ExpenseForm = (props) => {
             type='number'
             min='0.01'
             step='0.01'
-            value={enteredAmount} // Associated with "console.log(expenseData)"
-            onChange={amountChangeHandler}
+            value={enteredAmount} 
+            onChange={amountChangeHandler} 
           />
         </div>
         <div className='new-expense__control'>
@@ -61,7 +61,7 @@ const ExpenseForm = (props) => {
             type='date'
             min='2019-01-01'
             max='2022-12-31'
-            value={enteredDate} // Associated with "console.log(expenseData)"
+            value={enteredDate} 
             onChange={dateChangeHandler}
           />
         </div>
