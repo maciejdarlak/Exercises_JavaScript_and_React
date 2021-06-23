@@ -2,13 +2,15 @@ import React, { useState } from 'react';
 
 import './ExpenseForm.css';
 
+  // Empty spaces are made for start
 const ExpenseForm = (props) => {
-  const [enteredTitle, setEnteredTitle] = useState(''); // empty space - useState('')
+  const [enteredTitle, setEnteredTitle] = useState(''); // empty space - useState('empty space')
   const [enteredAmount, setEnteredAmount] = useState('');
   const [enteredDate, setEnteredDate] = useState('');
 
+  // Entering values "live"
   const titleChangeHandler = (event) => { // empty space --> filled space
-    setEnteredTitle(event.target.value);
+    setEnteredTitle(event.target.value); //
   };
 
   const amountChangeHandler = (event) => {
@@ -19,17 +21,20 @@ const ExpenseForm = (props) => {
     setEnteredDate(event.target.value);
   };
 
+  // "Don't send it automatically"
   const submitHandler = (event) => { // send button
     event.preventDefault(); // prevents it from being automatically uploaded to the server after clicking the "Submit" button
 
-    const expenseData = { // datas to send
+  // Datas to send
+    const expenseData = { 
       title: enteredTitle,
       amount: enteredAmount,
       date: new Date(enteredDate) // date will parse that date string and converted into a date object
     };
 
+  // Empty space again after sending
     props.onSaveExpenseData(expenseData); 
-    setEnteredTitle(''); // empty space again after sending
+    setEnteredTitle(''); 
     setEnteredAmount('');
     setEnteredDate('');
   };
