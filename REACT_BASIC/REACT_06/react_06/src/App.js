@@ -31,7 +31,7 @@ function ContactList() {
         department='JavaScript Developer'
       />
       <ContactItem
-        login='typeofweb2'
+        login='@typeofweb2'
         name='Brian'
         department='Human Resources'
       />
