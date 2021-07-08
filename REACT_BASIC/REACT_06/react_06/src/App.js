@@ -26,7 +26,7 @@ function ContactList() {
   return(
     <ul className='ui relaxed divided list selection'>
       <ContactItem
-        login='typeofweb1'
+        login='typeofweb1@'
         name='Lena'
         department='JavaScript Developer'
       />
@@ -63,7 +63,7 @@ function UserAvatar({login}) {
 
   if(login.includes('@'))
   {
-    avatar='https://api.adorable.io/avatars/55/$' + {login} + '.png'; 
+    avatar='https://api.hello-avatar.com/adorables/55/' + {login} + '.png'; 
   }
   else
   {
