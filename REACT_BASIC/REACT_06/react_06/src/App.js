@@ -71,7 +71,7 @@ function UserAvatar({login}) {
   }
     
   return (
-    <img src={avatar} classname='ui mini rounded image' />
+    <img src={avatar} className='ui mini rounded image' />
   )
 }
 
