@@ -194,11 +194,12 @@ import React from 'react';
 
 
 
+
 // Forms - select in submit range
 class FlavorForm extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {value: 'grapefruit'};
+    this.state = {value: 'lime'};
 
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -212,7 +213,7 @@ class FlavorForm extends React.Component {
   // Shows a new communicate
   handleSubmit(event) {
     alert('Your favorite flavor is: ' + this.state.value);
-    event.preventDefault(); // Thx of it form doesn't show default value after alert exit (here 'Limo')
+    event.preventDefault(); // Thx of it form doesn't show default value after alert exit (here 'Lime')
   }
 
   render() {
