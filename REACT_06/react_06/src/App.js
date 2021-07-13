@@ -94,10 +94,7 @@ import React from 'react';
 // export default App;
 
 
-
-
-
-
+// ------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 
 // Below functions instead of classes + use of different avatars depending on whether the login is an e-mail or not
@@ -190,10 +187,7 @@ import React from 'react';
 // export default App;
 
 
-
-
-
-
+// ------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 
 // // Forms - select in submit range
@@ -248,39 +242,50 @@ import React from 'react';
 //   export default App;
 
 
-
-
-
-
+// ------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 
 // State counter
 
 class App extends React.Component {
   constructor() {
-    super();
-    this.state = {counter: 0};
+    super(); // super refers to the constructor of the parent class (React.Component)
+    this.state = {counter: 0, clickCounter: 0, doubleClickCounter: 0}; // For the start the value is 0.
   }
   
   // These two functions below don't see 'this' that's why they have to be bind.
   increment() { 
     this.setState({
-      counter: this.state.counter + 1
+      counter: this.state.counter + 1,
+      clickCounter: this.state.clickCounter + 1
     })
   }
 
   decrement() { 
     this.setState({
-      counter: this.state.counter - 1
+      counter: this.state.counter - 1,
+      clickCounter: this.state.clickCounter + 1
+    })
+  }
+
+  doubleClickCounter() {
+    this.setState({
+      doubleClickCounter: this.state.clickCounter + 1
     })
   }
 
   render() {
     return (
       <div>
-        <button onClick={this.increment.bind(this)}>+</button>
+        <output>{this.state.clickCounter}</output>
+
+        <button onClick={this.increment.bind(this)}>+</button> 
         <output>{this.state.counter}</output>
-        <button onClick={this.decrement.bind(this)}>-</button>
+        <button onClick={this.decrement.bind(this)}>-</button>  
+
+        <button onDoubleClick={this.increment.bind(this)}>+</button> 
+        <output>{this.state.doubleClickCounter}</output>
+        <button onDoubleClick={this.decrement.bind(this)}>-</button> 
       </div>
     );
   }
