@@ -3,4 +3,4 @@ REACT_02 - a new function definition
 REACT_03 - a new app
 REACT_04 - Redux
 REACT_05 - a new app - expenses calendar
-REACT_06 - basic components training - events, forms
+REACT_06 - basic components training - events, forms, state
