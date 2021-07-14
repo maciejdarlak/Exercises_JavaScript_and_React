@@ -3,6 +3,7 @@ import './App.css';
 import React from 'react';
 
 
+/*
 // 1. Events 
 
 class AppHeader extends React.Component {
@@ -94,7 +95,7 @@ function App() {
 export default App;
 
 
-------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+// ------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 
 // 1A. Below functions instead of classes + use of different avatars depending on whether the login is an e-mail or not
@@ -187,7 +188,7 @@ function App() {
 export default App;
 
 
-------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+// ------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 
 // 2. Forms - select in submit button
@@ -243,10 +244,61 @@ function App() {
   export default App;
 
 
-------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+// ------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 
 // 3. State - sum, click counter and double click counter
+
+class App extends React.Component {
+  constructor() {
+    super(); // super refers to the constructor of the parent class (React.Component)
+    this.state = {sum: 0, clickCounter: 0, doubleClickCounter: 0}; // For the start the value is 0.
+  }
+  
+    // These three functions below don't see 'this' that's why they have to be bind.
+    increment() { 
+      this.setState({
+        sum: this.state.sum + 1,
+        clickCounter: this.state.clickCounter + 1
+      })
+    }
+
+    decrement() { 
+      this.setState({
+        sum: this.state.sum - 1,
+        clickCounter: this.state.clickCounter + 1
+      })
+    }
+
+    doubleClickIncrement() { 
+      this.setState({
+        doubleClickCounter: this.state.doubleClickCounter + 1,
+      })
+    }
+
+  render() {
+    return (
+      <div>
+        <output>sum {this.state.sum}</output>
+        <button onClick={this.increment.bind(this)}>+</button> 
+        <button onClick={this.decrement.bind(this)}>-</button>  
+        
+        <output>click counter {this.state.clickCounter}</output>
+
+        <button onDoubleClick={this.doubleClickIncrement.bind(this)}>+</button> 
+        <output>double click sum {this.state.doubleClickCounter}</output>
+      </div>
+    );
+  }
+}
+
+export default App;
+
+
+// ------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+// 3A. State - sum, click counter and double click counter
 
 class App extends React.Component {
   constructor() {
@@ -275,18 +327,41 @@ class App extends React.Component {
       })
     }
 
-
   render() {
     return (
-      <div>
-        <output>sum {this.state.sum}</output>
+      <div>        
         <button onClick={this.increment.bind(this)}>+</button> 
         <button onClick={this.decrement.bind(this)}>-</button>  
-        
-        <output>click counter {this.state.clickCounter}</output>
+        <div onDoubleClick={this.doubleClickIncrement.bind(this)}>
+          <output>sum {this.state.sum}</output>
+          <output> click counter {this.state.clickCounter}</output>
+          <output> double click sum {this.state.doubleClickCounter}</output>
+        </div>
+      </div>
+    );
+  }
+}
 
-        <button onDoubleClick={this.doubleClickIncrement.bind(this)}>+</button> 
-        <output>double click counter {this.state.doubleClickCounter}</output>
+export default App;
+
+
+// ------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+*/
+
+// 4. State - passing a function instead of an object
+
+class App extends React.Component {
+ state = {
+   firstName: "" 
+  };
+  
+  firstNameChange = (e) => this.setState({ [e.target.name] : e.target.value });
+
+  render() {
+    return(
+      <div>
+        <input type="text" name="firstName" value={this.state.firstName} onInput={this.firstNameChange}/>
+        <output>{this.state.firstName} </output>
       </div>
     );
   }
