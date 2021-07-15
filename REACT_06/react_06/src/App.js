@@ -3,7 +3,7 @@ import './App.css';
 import React from 'react';
 
 
-/*
+
 // 1. Events 
 
 class AppHeader extends React.Component {
@@ -346,7 +346,7 @@ export default App;
 
 
 // ------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-*/
+
 
 // 4. State - passing a function instead of an object
 
