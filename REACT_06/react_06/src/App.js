@@ -351,19 +351,19 @@ export default App;
 // 4. State - passing a function instead of an object
 
 class App extends React.Component {
- state = {
-   firstName: "" 
-  };
+
+  state={firstName: "", lastName: ""};
   
-  firstNameChange = (e) => this.setState({ [e.target.name] : e.target.value });
+  nameChange = (e) => this.setState({[e.target.name] : e.target.value});
 
   render() {
     return(
       <div>
-        <input type="text" name="firstName" value={this.state.firstName} onInput={this.firstNameChange}/>
-        <output>{this.state.firstName} </output>
+        <input type="text" name="firstName" value={this.state.firstName} onInput={this.nameChange}/>
+        <input type="text" name="lastName" value={this.state.lastName} onInput={this.nameChange}/>
+        <output>{this.state["firstName"]} {this.state["lastName"]}</output>
       </div>
-    );
+    )
   }
 }
 
