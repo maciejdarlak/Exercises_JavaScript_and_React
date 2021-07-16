@@ -354,17 +354,22 @@ class App extends React.Component {
 
   state={firstName: "", lastName: ""};
   
-  nameChange = (e) => this.setState({[e.target.name] : e.target.value});
+  nameChange = (e) => this.setState({[e.target.name] : e.target.value}); // [] has all object(state) proporties (firstName, lastName)
 
   render() {
     return(
       <div>
         <input type="text" name="firstName" value={this.state.firstName} onInput={this.nameChange}/>
         <input type="text" name="lastName" value={this.state.lastName} onInput={this.nameChange}/>
-        <output>{this.state["firstName"]} {this.state["lastName"]}</output>
+        <output>{this.state["firstName"]} {this.state["lastName"]}</output> 
       </div>
     )
   }
 }
 
 export default App;
+
+
+// ------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
