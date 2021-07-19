@@ -3,7 +3,7 @@ import './App.css';
 import React from 'react';
 
 
-
+/*
 // 1. Events 
 
 class AppHeader extends React.Component {
@@ -371,5 +371,63 @@ export default App;
 
 
 // ------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+*/
+
+//Life cycle methods
+
+class App extends React.Component {
+  constructor(props) {
+    super(props);
+
+    this.state = { dateVisible: true };
+  }
+
+  onButtonClick() {
+    this.setState(state => ({ dateVisible: !state.dateVisible }));
+  }
+
+  render() {
+    return (
+      <div>
+        <button onClick={this.onButtonClick.bind(this)}>Kliknij</button>
+        {this.state.dateVisible && <DateComponent />}
+      </div>
+    );
+  }
+}
 
 
+class DateComponent extends React.Component {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      date: new Date()
+    };
+  }
+
+  // Refreshes the date
+  updateDate() {
+    this.setState({
+      date: new Date()
+    });
+  }
+
+  // Refreshes the date every second
+  componentDidMount() {
+    this.timerId = window.setInterval(this.updateDate.bind(this), 1000);
+  }
+
+  // Clears the date
+  componentWillUnmount() {
+    window.clearInterval(this.timerId);
+  }
+
+  // Returns the date (as a string)
+  render() {
+    const dateStr = this.state.date.toString();
+    return <time>{dateStr}</time>;
+  }
+}
+
+export default App;
