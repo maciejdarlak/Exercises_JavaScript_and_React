@@ -373,15 +373,18 @@ export default App;
 // ------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 */
 
-//Life cycle methods
 
+// 5. A life cycle methods
+
+// A form - the button + this.state.dateVisible + DateComponent class
 class App extends React.Component {
   constructor(props) {
     super(props);
 
-    this.state = { dateVisible: true };
+    this.state = { dateVisible: true }; 
   }
 
+  // Visibility change
   onButtonClick() {
     this.setState(state => ({ dateVisible: !state.dateVisible }));
   }
@@ -389,14 +392,14 @@ class App extends React.Component {
   render() {
     return (
       <div>
-        <button onClick={this.onButtonClick.bind(this)}>Kliknij</button>
-        {this.state.dateVisible && <DateComponent />}
+        <button onClick = {this.onButtonClick.bind(this)}>Kliknij</button>
+        {this.state.dateVisible && <DateComponent/>} 
       </div>
     );
   }
 }
 
-
+// Shows the date, refreshes it
 class DateComponent extends React.Component {
   constructor(props) {
     super(props);
@@ -418,10 +421,10 @@ class DateComponent extends React.Component {
     this.timerId = window.setInterval(this.updateDate.bind(this), 1000);
   }
 
-  // Clears the date
-  componentWillUnmount() {
-    window.clearInterval(this.timerId);
-  }
+  // // Clears the date (not neccessary in this task)
+  // componentWillUnmount() {
+  //   window.clearInterval(this.timerId);
+  // }
 
   // Returns the date (as a string)
   render() {
