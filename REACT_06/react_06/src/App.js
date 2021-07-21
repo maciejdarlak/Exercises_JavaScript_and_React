@@ -371,7 +371,6 @@ export default App;
 
 
 // ------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-*/
 
 
 // 5. A life cycle methods
@@ -431,6 +430,30 @@ class DateComponent extends React.Component {
     const dateStr = this.state.date.toString();
     return <time>{dateStr}</time>;
   }
+}
+
+export default App;
+
+
+// ------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+*/
+
+// 6. Lists and keys
+
+function ListItem(props) {
+  return <li>{props.value}</li>;
+}
+
+function App(props) {
+  const numbers = props.numbers;
+  return (
+    <ul>
+      {numbers.map((number) =>
+        <ListItem key={number.toString()}
+                  value={number} />
+      )}
+    </ul>
+  );
 }
 
 export default App;
