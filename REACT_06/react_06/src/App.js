@@ -1,6 +1,7 @@
 //import logo from './logo.svg';
 import './App.css';
 import React from 'react';
+import { render } from '@testing-library/react';
 
 
 /*
@@ -440,11 +441,11 @@ export default App;
 
 // 6. Lists and keys
 
-function ListItem(props) {
+function ListItem(props) { // props = here the "number"
   return <li>{props.value}</li>;
 }
 
-function App(props) {
+function App(props) { // props = here "[]numbers" from index.js
   const numbers = props.numbers;
   return (
     <ul>

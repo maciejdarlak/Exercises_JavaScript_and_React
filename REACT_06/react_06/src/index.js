@@ -5,11 +5,11 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 
 
-const numbers = [1, 2, 3, 4, 5];
+const numbers = [1, 2, 1, 2, 3, 4, 5];
 
 ReactDOM.render(
   <React.StrictMode>
-    <App numbers={numbers}/>
+    <App numbers={numbers}/> 
   </React.StrictMode>,
   document.getElementById('root')
 );
